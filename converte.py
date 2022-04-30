@@ -9,7 +9,7 @@ argumentos = sys.argv
 nomeArquivo = argumentos.pop()
 
 arquivo = open(nomeArquivo, 'r') #Abre arquivo
-automato = arquivo.readLines()          #Le arquivo
+automato = arquivo.readlines()          #Le arquivo
 arquivo.close()                         #Fecha arquivo
 
 gramatica = fazConversao(automato) #Converte o automato finito não deterministico em gramatica regular
