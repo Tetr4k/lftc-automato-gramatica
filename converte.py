@@ -14,3 +14,5 @@ arquivo.close()                         #Fecha arquivo
 
 gramatica = fazConversao(automato) #Converte o automato finito não deterministico em gramatica regular
 
+for linha in gramatica: #Escreve a gramatica
+	print(linha)
