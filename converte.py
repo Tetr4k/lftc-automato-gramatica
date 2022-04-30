@@ -6,9 +6,9 @@ def fazConversao(automato):
 '''
 
 argumentos = sys.argv
-nomeArquivo = argumentos.pop(0)
+nomeArquivo = argumentos.pop()
 
-arquivo = open(nomeArquivo+".txt", 'r') #Abre arquivo
+arquivo = open(nomeArquivo, 'r') #Abre arquivo
 automato = arquivo.readLines()          #Le arquivo
 arquivo.close()                         #Fecha arquivo
 
