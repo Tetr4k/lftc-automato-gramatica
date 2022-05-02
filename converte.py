@@ -14,7 +14,7 @@ def escreve(texto):
 
 def leAutomato(nomeArquivo):
 	if not ".txt" in nomeArquivo:
-		nomearquivo += ".txt"
+		nomeArquivo += ".txt"
 	arquivo	 = open(nomeArquivo, 'r')	#Abre arquivo
 	automato = arquivo.readlines()          #Le arquivo
 	arquivo.close()                         #Fecha arquivo
