@@ -13,6 +13,8 @@ def escreve(texto):
 		print(linha)
 
 def leAutomato(nomeArquivo):
+	if not ".txt" in nomeArquivo:
+		nomearquivo += ".txt"
 	arquivo	 = open(nomeArquivo, 'r')	#Abre arquivo
 	automato = arquivo.readlines()          #Le arquivo
 	arquivo.close()                         #Fecha arquivo
@@ -37,3 +39,5 @@ for nomeArquivo in listaArquivos:
 	gramatica = fazConversao(automato)	#Converte o automato finito não deterministico em gramatica regular
 	print("Gramatica:")
 	escreve(gramatica)	#Escreve a gramatica
+	
+	limpaTela()
