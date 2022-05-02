@@ -18,7 +18,12 @@ def leAutomato(nomeArquivo):
 	arquivo	 = open(nomeArquivo, 'r')	#Abre arquivo
 	automato = arquivo.readlines()          #Le arquivo
 	arquivo.close()                         #Fecha arquivo
-	return automato
+	automatoFiltrado = []
+	for linha in automato:
+		linhaSemQuebra = linha.replace("\n", "")		#Remove quebras de linha
+		linhaSemEspaco = linhaSemQuebra.replace(" ", "")	#Remove espaços
+		automatoFiltrado.append(linhaSemEspaco)
+	return automatoFiltrado
 
 def fazConversao(automato):
 '''
