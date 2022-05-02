@@ -25,8 +25,8 @@ def fazConversao(automato):
   Aqui a gente faz junto no laboratorio ☺
 '''
 
-argumentos    = sys.argv		#Captura argumentos passados
-listaArquivos = argumentos.pop()	#Remove primeiro argumento("converte.py")
+argumentos    = sys.argv	#Captura argumentos passados
+listaArquivos = argumentos[1::]	#Remove primeiro argumento("converte.py")
 
 for nomeArquivo in listaArquivos:
 	
