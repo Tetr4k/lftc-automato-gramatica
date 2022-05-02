@@ -1,6 +1,7 @@
 # Trabalho de Implementação
 ## LFTC - Conversão de Automato para Gramatica
 Este repositório é a implementação de um trabalho de Linguagens Formais e Teoria da Computação do curso de Ciência da Computação na UFF-PURO no período de 2022-1.
+<br>
 O grupo composto por Gabriel Ribeiro(@tetr4k), Julia Miranda(@juliadmiranda) e Raphael Yoshiki(@rafaelyoshiki) deve implementar um programa que converta um automato finito não deterministico em uma gramatica regular.
 
 ## Uso
