@@ -1,4 +1,12 @@
-import sys
+import sys, os, platform
+
+sistema = platform.system()
+
+def limpaTela():
+	if sistema == "Windows":
+		os.system("cls")
+	else:
+		os.system("clear")	
 
 def escreve(texto):
 	for linha in texto:
