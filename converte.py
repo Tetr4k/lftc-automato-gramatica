@@ -40,4 +40,5 @@ for nomeArquivo in listaArquivos:
 	print("Gramatica:")
 	escreve(gramatica)	#Escreve a gramatica
 	
+	input("Pressione ENTER para continuar . . .")
 	limpaTela()
