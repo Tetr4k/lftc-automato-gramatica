@@ -35,6 +35,8 @@ listaArquivos = argumentos[1::]	#Remove primeiro argumento("converte.py")
 
 for nomeArquivo in listaArquivos:
 	
+	limpaTela()
+	
 	automato  = leAutomato(nomeArquivo)	#Lê automato a partir de um arquivo
 	print("AFND:")
 	escreve(automato)	#Escreve o automato
@@ -46,4 +48,3 @@ for nomeArquivo in listaArquivos:
 	escreve(gramatica)	#Escreve a gramatica
 	
 	input("Pressione ENTER para continuar . . .")
-	limpaTela()
