@@ -18,6 +18,11 @@ def filtraQuebraDeLinha(linha):
 def filtraEspacos(linha):
 	return linha.replace(" ", "")
 
+def filtra(linha):
+	linha = filtraQuebraDeLinha(linha)
+	linha = filtraEspacos(linha)
+	return linha
+
 def leAutomato(nomeArquivo):
 	if not ".txt" in nomeArquivo:
 		nomeArquivo += ".txt"
@@ -26,9 +31,8 @@ def leAutomato(nomeArquivo):
 	arquivo.close()                         #Fecha arquivo
 	automatoFiltrado = []
 	for linha in automato:
-		linhaSemQuebra = linha.replace("\n", "")		#Remove quebras de linha
-		linhaSemEspaco = linhaSemQuebra.replace(" ", "")	#Remove espaços
-		automatoFiltrado.append(linhaSemEspaco)
+		linha = filtra(linha)		#Filtra "\n"s e " "s
+		automatoFiltrado.append(linha)
 	return automatoFiltrado
 
 def fazConversao(automato):
