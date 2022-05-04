@@ -12,6 +12,9 @@ def escreve(texto):
 	for linha in texto:
 		print(linha)
 
+def filtraQuebraDeLinha(linha):
+	return linha.replace("\n", "")
+
 def leAutomato(nomeArquivo):
 	if not ".txt" in nomeArquivo:
 		nomeArquivo += ".txt"
