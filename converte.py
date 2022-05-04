@@ -9,8 +9,11 @@ def limpaTela():
 		os.system("clear")	
 
 def escreve(texto):
+	cont=0
 	for linha in texto:
-		print(linha)
+		cont+=1
+		print(f'\t{cont}| {linha}')
+	print("\t----------------")
 
 def filtraQuebraDeLinha(linha):
 	return linha.replace("\n", "")
@@ -50,8 +53,6 @@ for nomeArquivo in listaArquivos:
 	automato  = leAutomato(nomeArquivo)	#Lê automato a partir de um arquivo
 	print("AFND:")
 	escreve(automato)	#Escreve o automato
-	
-	print("-----------------")
 	
 	gramatica = fazConversao(automato)	#Converte o automato finito não deterministico em gramatica regular
 	print("Gramatica:")
