@@ -11,24 +11,29 @@ def leAutomato(nomeArquivo):
 
 
 def fazConversao(automato):
-	#Aqui a gente faz junto no laboratorio ☺
+	#Inicia lista de linhas da gramatica
 	gramatica = []
-	# linha 1 - Estado inicial
+	
+	#Captura estado inicial a partir da primeira linha
 	aux = automato[0]
 	I   = aux[-1]
-	# linha 2 - Estados finais
+	
+	#Captura estados finais a partir da segunda linha
 	aux = automato[1]
 	for c in aux:
 		if c.isdigit():
 			linha = c + " -> ε"
-			gramatica.append(linha)			
-	# linhas N - Transições
+			gramatica.append(linha)	
+	
+	#Captura transições das linhas seguintes
 	aux = automato[2::]
 	for transicao in aux:
 		for c in transicao[4::]:
 			if c.isdigit():
 				linha = transicao[1] + " -> " + transicao[3] + c
 				gramatica.append(linha)
+				
+	#Converter numeros dos estados em seus respectivos simbolos
 				
 	return gramatica
 
