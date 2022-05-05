@@ -19,3 +19,7 @@ Em seguida, no seu sistema operacional preferido, abra o terminal ou prompt de c
 ```
 
 O programa ira converter cada automato e exibir na tela o automato e sua respectiva gramatica.
+
+### ATENÇÃO
+
+* O AFND que será convertido deve ter no maximo 9 estados(1 a 9).
