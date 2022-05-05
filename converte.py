@@ -38,8 +38,7 @@ def fazConversao(automato):
 	F, automato = capturaFinais(automato)
 	
 	#Captura transições das linhas seguintes
-	aux = automato[2::]
-	for transicao in aux:
+	for transicao in automato:
 		for c in transicao[4::]:
 			if c.isdigit():
 				linha = transicao[1] + "->"
