@@ -9,9 +9,28 @@ def leAutomato(nomeArquivo):
 	arquivo.close()                         #Fecha arquivo
 	return filtra(automato)			#Filtra "\n"s e espacos
 
+
 def fazConversao(automato):
 	#Aqui a gente faz junto no laboratorio ☺
-	return []
+	gramatica = []
+	# linha 1 - Estado inicial
+	aux = automato[0]
+	I   = aux[-1]
+	# linha 2 - Estados finais
+	aux = automato[1]
+	for c in aux:
+		if c.isdigit():
+			linha = c + " -> ε"
+			gramatica.append(linha)			
+	# linhas N - Transições
+	aux = automato[2::]
+	for transicao in aux:
+		for c in transicao[4::]:
+			if c.isdigit():
+				linha = transicao[1] + " -> " + transicao[3] + c
+				gramatica.append(linha)
+				
+	return gramatica
 
 
 argumentos    = sys.argv	#Captura argumentos passados
