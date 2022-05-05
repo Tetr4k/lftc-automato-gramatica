@@ -30,7 +30,10 @@ def fazConversao(automato):
 	for transicao in aux:
 		for c in transicao[4::]:
 			if c.isdigit():
-				linha = transicao[1] + " -> " + transicao[3] + c
+				linha = transicao[1] + "->"
+				if transicao[3] != "@":
+					linha+=transicao[3]
+				linha+=c
 				gramatica.append(linha)
 				
 	#Converter numeros dos estados em seus respectivos simbolos
