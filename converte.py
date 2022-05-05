@@ -18,7 +18,7 @@ def capturaFinais(automato):
 	for c in automato[0]:
 		if c.isdigit():
 			aux.append(c)
-	return aux, automato[1::]
+	return sorted(aux), automato[1::]
 
 def fazConversao(automato):
 	#Inicia lista de linhas da gramatica
