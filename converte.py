@@ -20,6 +20,13 @@ def capturaFinais(automato):
 			aux.append(c)
 	return sorted(aux), automato[1::]
 
+def trocaInicio(gramatica, I):
+	aux = []
+	for linha in gramatica:
+		linha.replace("1", "0").replace(I, "1").replace("0", I)
+		aux.append(linha)
+	return aux
+
 def fazConversao(automato):
 	#Inicia lista de linhas da gramatica
 	gramatica = []
@@ -40,6 +47,11 @@ def fazConversao(automato):
 					linha+=transicao[3]
 				linha+=c
 				gramatica.append(linha)
+
+	#Caso I seja diferente de 1, troca todo I com 1
+	if I!="1":
+		gramatica = trocaInicio(gramatica, I)
+
 				
 	#Converter numeros dos estados em seus respectivos simbolos
 				
