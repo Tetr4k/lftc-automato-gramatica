@@ -6,10 +6,21 @@ O grupo composto por Gabriel Ribeiro(@Tetr4k), Júlia Miranda(@juliaDmiranda) e 
 
 ## Uso
 
-Para usar o programa tenha arquivos texto criados com os AFNDs que você quer converter, no seguinte formato:
+Para usar o programa tenha arquivos texto criados com os AFNDs que você quer converter, sendo:
+
+* K o estado inicial;
+* L um estado final;
+* M um estado intermediario;
+* @ uma cadeia vazia;
+
+no seguinte formato:
 
 ```
-  formato a definir
+  I = K
+  F = {L, ...}
+  (K, a) = {K, L, ...}
+  (K, b) = {K, M, L, ...}
+  (L, a) = {L, ...}
 ```
 
 Em seguida, no seu sistema operacional preferido, abra o terminal ou prompt de comando, va para o diretorio onde está o programa e digite:
