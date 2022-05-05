@@ -51,6 +51,7 @@ def fazConversao(automato):
 	if I!="1":
 		gramatica = trocaInicio(gramatica, I)
 
+	gramatica = sorted(gramatica)
 				
 	#Converter numeros dos estados em seus respectivos simbolos
 				
