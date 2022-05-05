@@ -9,14 +9,17 @@ def leAutomato(nomeArquivo):
 	arquivo.close()                         #Fecha arquivo
 	return filtra(automato)			#Filtra "\n"s e espacos
 
+def capturaInicio(automato):
+	aux = automato[0]
+	return aux[-1], automato[1::]
+
 
 def fazConversao(automato):
 	#Inicia lista de linhas da gramatica
 	gramatica = []
 	
 	#Captura estado inicial a partir da primeira linha
-	aux = automato[0]
-	I   = aux[-1]
+	I, automato = capturaInicio(automato)
 	
 	#Captura estados finais a partir da segunda linha
 	aux = automato[1]
