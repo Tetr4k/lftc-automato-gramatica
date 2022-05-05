@@ -13,6 +13,12 @@ def capturaInicio(automato):
 	aux = automato[0]
 	return aux[-1], automato[1::]
 
+def capturaFinais(automato):
+	aux = []
+	for c in automato[0]:
+		if c.isdigit():
+			aux.append(c)
+	return aux, automato[1::]
 
 def fazConversao(automato):
 	#Inicia lista de linhas da gramatica
@@ -22,11 +28,7 @@ def fazConversao(automato):
 	I, automato = capturaInicio(automato)
 	
 	#Captura estados finais a partir da segunda linha
-	aux = automato[1]
-	for c in aux:
-		if c.isdigit():
-			linha = c + " -> ε"
-			gramatica.append(linha)	
+	F, automato = capturaFinais(automato)
 	
 	#Captura transições das linhas seguintes
 	aux = automato[2::]
