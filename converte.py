@@ -2,7 +2,7 @@ import sys
 from funcoesAuxiliares import limpaTela, filtra, escreve
 
 def leAutomato(nomeArquivo):
-	if not ".txt" in nomeArquivo:
+	if not ".txt" in nomeArquivo[-4::]:
 		nomeArquivo += ".txt"
 	arquivo	 = open(nomeArquivo, 'r')
 	automato = arquivo.readlines()
