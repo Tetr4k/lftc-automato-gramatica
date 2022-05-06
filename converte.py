@@ -50,10 +50,14 @@ def fazConversao(automato):
 	#Captura transições das linhas seguintes
 	for transicao in automato:
 		for c in transicao[4::]:
+	for transicao in automato[2::]:
+		simbolo   = transicao[1]
+		caractere = transicao[3]
+		for c in transicao[7::2]:
 			if c.isdigit():
-				linha = transicao[1] + "->"
-				if transicao[3] != "@":
-					linha+=transicao[3]
+				linha = simbolo + "->"
+				if caractere != "@":
+					linha+=caractere
 				linha+=c
 				gramatica.append(linha)
 
