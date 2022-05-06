@@ -48,8 +48,9 @@ def fazConversao(automato):
 	finais = capturaFinais(automato)
 	
 	#Captura transições das linhas seguintes
-	for transicao in automato:
-		for c in transicao[4::]:
+	for f in finais:
+		linha = f+"->ε"
+		gramatica.append(linha)
 	for transicao in automato[2::]:
 		simbolo   = transicao[1]
 		caractere = transicao[3]
