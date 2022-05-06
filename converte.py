@@ -23,7 +23,10 @@ def converteSimbolos(gramatica):
 		auxLinha = ""
 		for c in linha:
 			if c.isdigit():
-				c = chr(int(c)+64)
+				if c == "1":
+					c = "S"
+				else:
+					c = chr(int(c)+63)
 			auxLinha+=c
 		aux.append(auxLinha)
 	return aux
