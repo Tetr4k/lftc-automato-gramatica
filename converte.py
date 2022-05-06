@@ -4,21 +4,11 @@ from funcoesAuxiliares import limpaTela, filtra, escreve
 def leAutomato(nomeArquivo):
 	if not ".txt" in nomeArquivo:
 		nomeArquivo += ".txt"
-	arquivo	 = open(nomeArquivo, 'r')	#Abre arquivo
-	automato = arquivo.readlines()          #Le arquivo
-	arquivo.close()                         #Fecha arquivo
-	return filtra(automato)			#Filtra "\n"s e espacos
-
-def capturaInicio(automato):
-	#Pega primeira linha e retorna o ultimo caractere
-	aux = automato[0]
-	return aux[-1]
-
-def capturaFinais(automato):
-	#Pega segunda linha e retorna uma lista ordenada com os finais
-	aux    = automato[1]
-	finais = aux[3::2]
-	return sorted(finais)
+	arquivo	 = open(nomeArquivo, 'r')
+	automato = arquivo.readlines()
+	arquivo.close()
+	#Filtra "\n"s e espacos
+	return filtra(automato)
 
 def trocaInicio(gramatica, I):
 	aux = []
@@ -43,10 +33,12 @@ def fazConversao(automato):
 	gramatica = []
 	
 	#Captura estado inicial a partir da primeira linha
-	inicio = capturaInicio(automato)
+	aux = automato[0]
+	inicio = aux[-1]
 	
 	#Captura estados finais a partir da segunda linha
-	finais = capturaFinais(automato)
+	aux    = automato[1]
+	finais = aux[3::2]
 
 	#Traduz todos os finais
 	for f in finais:
@@ -77,18 +69,22 @@ def fazConversao(automato):
 
 	return gramatica
 
-argumentos    = sys.argv	#Captura argumentos passados
-listaArquivos = argumentos[1::]	#Remove primeiro argumento(converte.py)
+#Captura argumentos passados
+argumentos    = sys.argv
+#Remove primeiro argumento(converte.py)
+listaArquivos = argumentos[1::]
 
 for nomeArquivo in listaArquivos:
 
 	limpaTela()
-	
-	automato  = leAutomato(nomeArquivo)	#Lê automato a partir de um arquivo
+
+	#Lê automato a partir de um arquivo
+	automato  = leAutomato(nomeArquivo)
 	print("AFND:")
 	escreve(automato)
 	
-	gramatica = fazConversao(automato)	#Converte o automato finito não deterministico em gramatica regular
+	#Converte o automato finito não deterministico em gramatica regular
+	gramatica = fazConversao(automato)
 	print("Gramatica:")
 	escreve(gramatica)
 	
