@@ -29,5 +29,6 @@ def filtra(texto):
 	for linha in texto:
 		linha = filtraQuebraDeLinha(linha)
 		linha = filtraEspacos(linha)
-		textoFiltrado.append(linha)
+		if linha != "":
+			textoFiltrado.append(linha)
 	return textoFiltrado
