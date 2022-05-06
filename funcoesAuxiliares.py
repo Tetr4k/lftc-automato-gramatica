@@ -12,8 +12,8 @@ def escreve(texto):
 	cont=0
 	for linha in texto:
 		cont+=1
-		print(f'\t{cont}| {linha}')
-	print("\t----------------")
+		print(f'{cont}\t| {linha}')
+	print()
 
 def filtraQuebraDeLinha(linha):
 	#Função para remover quebras de linha
