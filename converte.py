@@ -27,6 +27,16 @@ def trocaInicio(gramatica, I):
 		aux.append(linha)
 	return aux
 
+def converteSimbolos(gramatica):
+	aux = []
+	for linha in gramatica:
+		auxLinha = ""
+		for c in linha:
+			if c.isdigit():
+				c = chr(int(c)+64)
+			auxLinha+=c
+		aux.append(auxLinha)
+	return aux
 def fazConversao(automato):
 	#Inicia lista de linhas da gramatica
 	gramatica = []
@@ -54,9 +64,9 @@ def fazConversao(automato):
 	gramatica = sorted(gramatica)
 				
 	#Converter numeros dos estados em seus respectivos simbolos
-				
-	return gramatica
+	gramatica = converteSimbolos(gramatica)
 
+	return gramatica
 
 argumentos    = sys.argv	#Captura argumentos passados
 listaArquivos = argumentos[1::]	#Remove primeiro argumento(converte.py)
