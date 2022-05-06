@@ -10,15 +10,15 @@ def leAutomato(nomeArquivo):
 	return filtra(automato)			#Filtra "\n"s e espacos
 
 def capturaInicio(automato):
+	#Pega primeira linha e retorna o ultimo caractere
 	aux = automato[0]
-	return aux[-1], automato[1::]
+	return aux[-1]
 
 def capturaFinais(automato):
-	aux = []
-	for c in automato[0]:
-		if c.isdigit():
-			aux.append(c)
-	return sorted(aux), automato[1::]
+	#Pega segunda linha e retorna uma lista ordenada com os finais
+	aux    = automato[1]
+	finais = aux[3::2]
+	return sorted(finais)
 
 def trocaInicio(gramatica, I):
 	aux = []
@@ -42,10 +42,10 @@ def fazConversao(automato):
 	gramatica = []
 	
 	#Captura estado inicial a partir da primeira linha
-	I, automato = capturaInicio(automato)
+	inicio = capturaInicio(automato)
 	
 	#Captura estados finais a partir da segunda linha
-	F, automato = capturaFinais(automato)
+	finais = capturaFinais(automato)
 	
 	#Captura transições das linhas seguintes
 	for transicao in automato:
@@ -58,8 +58,8 @@ def fazConversao(automato):
 				gramatica.append(linha)
 
 	#Caso I seja diferente de 1, troca todo I com 1
-	if I!="1":
-		gramatica = trocaInicio(gramatica, I)
+	if inicio!="1":
+		gramatica = trocaInicio(gramatica, inicio)
 
 	gramatica = sorted(gramatica)
 				
