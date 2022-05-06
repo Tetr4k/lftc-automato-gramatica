@@ -37,6 +37,7 @@ def converteSimbolos(gramatica):
 			auxLinha+=c
 		aux.append(auxLinha)
 	return aux
+
 def fazConversao(automato):
 	#Inicia lista de linhas da gramatica
 	gramatica = []
@@ -46,11 +47,13 @@ def fazConversao(automato):
 	
 	#Captura estados finais a partir da segunda linha
 	finais = capturaFinais(automato)
-	
-	#Captura transições das linhas seguintes
+
+	#Traduz todos os finais
 	for f in finais:
 		linha = f+"->ε"
 		gramatica.append(linha)
+
+	#Captura transições das linhas seguintes e traduz
 	for transicao in automato[2::]:
 		simbolo   = transicao[1]
 		caractere = transicao[3]
@@ -66,6 +69,7 @@ def fazConversao(automato):
 	if inicio!="1":
 		gramatica = trocaInicio(gramatica, inicio)
 
+	#Ordena a gramatica
 	gramatica = sorted(gramatica)
 				
 	#Converter numeros dos estados em seus respectivos simbolos
