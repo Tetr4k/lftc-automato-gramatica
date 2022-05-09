@@ -12,7 +12,7 @@ def escreve(texto):
 	cont=0
 	for linha in texto:
 		cont+=1
-		print(f'{cont}\t| {linha}')
+		print(f'{cont}\t{linha}')
 	print()
 
 def filtraQuebraDeLinha(linha):
