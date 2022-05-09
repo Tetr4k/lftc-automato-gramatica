@@ -9,11 +9,12 @@ def limpaTela():
 
 def escreve(texto):
 	#Função para escrever um texto formatado
+	print("-------------------------")
 	cont=0
 	for linha in texto:
 		cont+=1
-		print(f'{cont}\t{linha}')
-	print()
+		print(f'{cont}\t| {linha}')
+	print("=========================")
 
 def filtraQuebraDeLinha(linha):
 	#Função para remover quebras de linha

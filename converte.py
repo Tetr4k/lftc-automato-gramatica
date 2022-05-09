@@ -45,7 +45,7 @@ def fazConversao(automato):
 
 	#Traduz todos os finais
 	for f in finais:
-		linha = f+"->ε"
+		linha = f+" -> ε"
 		gramatica.append(linha)
 
 	#Captura transições das linhas seguintes e traduz
@@ -54,7 +54,7 @@ def fazConversao(automato):
 		caractere = transicao[3]
 		for c in transicao[7::2]:
 			if c.isdigit():
-				linha = simbolo + "->"
+				linha = simbolo + " -> "
 				if caractere != "@":
 					linha+=caractere
 				linha+=c
@@ -83,12 +83,12 @@ for nomeArquivo in listaArquivos:
 
 	#Lê automato a partir de um arquivo
 	automato  = leAutomato(nomeArquivo)
-	print("AFND:")
+	print("\nAFND:")
 	escreve(automato)
 	
 	#Converte o automato finito não deterministico em gramatica regular
 	gramatica = fazConversao(automato)
-	print("Gramatica:")
+	print("\nGramatica:")
 	escreve(gramatica)
 	
 	input("Pressione ENTER para continuar . . .")
