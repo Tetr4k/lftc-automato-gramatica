@@ -53,12 +53,11 @@ def fazConversao(automato):
 		simbolo   = transicao[1]
 		caractere = transicao[3]
 		for c in transicao[7::2]:
-			if c.isdigit():
-				linha = simbolo + " -> "
-				if caractere != "@":
-					linha+=caractere
-				linha+=c
-				gramatica.append(linha)
+			linha = simbolo + " -> "
+			if caractere != "@":
+				linha+=caractere
+			linha+=c
+			gramatica.append(linha)
 
 	#Caso I seja diferente de 1, troca todo I com 1
 	if inicio!="1":
