@@ -2,7 +2,7 @@ import sys
 from funcoesAuxiliares import limpaTela, filtra, escreve
 
 def leAutomato(nomeArquivo):
-	if not ".txt" in nomeArquivo:
+	if not ".txt" in nomeArquivo[-4::]:
 		nomeArquivo += ".txt"
 	arquivo	 = open(nomeArquivo, 'r')
 	automato = arquivo.readlines()
@@ -23,7 +23,10 @@ def converteSimbolos(gramatica):
 		auxLinha = ""
 		for c in linha:
 			if c.isdigit():
-				c = chr(int(c)+64)
+				if c == "1":
+					c = "S"
+				else:
+					c = chr(int(c)+63)
 			auxLinha+=c
 		aux.append(auxLinha)
 	return aux
@@ -42,7 +45,7 @@ def fazConversao(automato):
 
 	#Traduz todos os finais
 	for f in finais:
-		linha = f+"->ε"
+		linha = f+" -> ε"
 		gramatica.append(linha)
 
 	#Captura transições das linhas seguintes e traduz
@@ -50,12 +53,11 @@ def fazConversao(automato):
 		simbolo   = transicao[1]
 		caractere = transicao[3]
 		for c in transicao[7::2]:
-			if c.isdigit():
-				linha = simbolo + "->"
-				if caractere != "@":
-					linha+=caractere
-				linha+=c
-				gramatica.append(linha)
+			linha = simbolo + " -> "
+			if caractere != "@":
+				linha+=caractere
+			linha+=c
+			gramatica.append(linha)
 
 	#Caso I seja diferente de 1, troca todo I com 1
 	if inicio!="1":
@@ -80,12 +82,12 @@ for nomeArquivo in listaArquivos:
 
 	#Lê automato a partir de um arquivo
 	automato  = leAutomato(nomeArquivo)
-	print("AFND:")
+	print("\nAFND:")
 	escreve(automato)
 	
 	#Converte o automato finito não deterministico em gramatica regular
 	gramatica = fazConversao(automato)
-	print("Gramatica:")
+	print("\nGramatica:")
 	escreve(gramatica)
 	
 	input("Pressione ENTER para continuar . . .")
